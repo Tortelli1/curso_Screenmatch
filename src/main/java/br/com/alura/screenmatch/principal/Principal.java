@@ -53,6 +53,7 @@ public class Principal {
 
         System.out.println("\nTop 5 episódios");
         dadosEpisodios.stream()
+                .filter(e -> !e.avaliacao().equalsIgnoreCase("N/A"))
                 .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
                 .limit(5)
                 .forEach(System.out::println);
